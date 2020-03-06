@@ -24,6 +24,10 @@ export const Button = styled.div`
     height: 150px;
     border-radius: 30px;
     border: solid 4px #0f0f19;
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 30px;
+        width: 85vw;
+    }
 `
 export const SelectionBorder = styled.div`
     border: solid 2px ${props => props.borderColor};

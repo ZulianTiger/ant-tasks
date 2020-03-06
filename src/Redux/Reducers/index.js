@@ -16,12 +16,12 @@ const initialState = {
             "property1.property2". The function should return the value on the specific path. Take care of error
             handling.`,
             example: `
-    const lookup = (obj, path) => {....}
-    const object = { property1: { property2: "Apple", property3: 'Orange' } };
-    const path = 'property1.property2'
-    console.log(lookup(object, path));
+const lookup = (obj, path) => {....}
+const object = { property1: { property2: "Apple", property3: 'Orange' } };
+const path = 'property1.property2'
+console.log(lookup(object, path));
 
-    Result: 'Apple'
+Result: 'Apple'
             `
         },
         {
@@ -33,7 +33,7 @@ const initialState = {
             and a view to create/edit the items. You don't have to create the API, mock it on the frontend, without
             using external libraries or services.`,
             example: `
-    You can create a grocery list
+You can create a grocery list
             `
         },
         {
@@ -44,13 +44,13 @@ const initialState = {
             such as the next positive integer, which isn't present in the existing structure list and with at least one
             smaller integer appearing at least twice in the same list.`,
             example: `
-    a = [{id:1, value:3}, {id:2, value:7}, {id:3, value:3}, {id:4, value:1}, {id:5, value:4}]
-    value: 1 - appears 1 time
-    value 3 - appears 2 times
-    value 4 - appear 1 time
-    value 7 - appears 1 time
+a = [{id:1, value:3}, {id:2, value:7}, {id:3, value:3}, {id:4, value:1}, {id:5, value:4}]
+value: 1 - appears 1 time
+value 3 - appears 2 times
+value 4 - appear 1 time
+value 7 - appears 1 time
 
-    Solution: {id: 6, value: 5}
+Solution: {id: 6, value: 5}
             `
         }
     ],

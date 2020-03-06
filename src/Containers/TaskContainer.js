@@ -3,6 +3,7 @@ import Title from '../Components/Title'
 
 import {
     TaskPageContainer,
+    CodeText,
 } from './Styles/TaskContainer'
 
 import { useSelector } from 'react-redux'
@@ -23,7 +24,7 @@ const TaskContainer = () => {
             </div>
             <div style={{ marginBottom: 30 }} >
                 <SectionTitle color="#0f0f19" >Example</SectionTitle>
-                <pre>{currentTask.example}</pre>
+                <CodeText>{currentTask.example}</CodeText>
             </div>
             <div>
                 <SectionTitle color="#0f0f19" >Solution</SectionTitle>
