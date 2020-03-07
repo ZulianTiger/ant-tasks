@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PageContainer = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
     background-color: #0f0f19;
     @media only screen and (max-width: 1200px) {

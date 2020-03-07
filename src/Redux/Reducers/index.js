@@ -22,6 +22,40 @@ const path = 'property1.property2'
 console.log(lookup(object, path));
 
 Result: 'Apple'
+            `,
+            solution: `
+lookup = (obj, path) => {
+    //variable for separating the different property keys
+    let pathArray;
+    pathArray = path.split('.');
+        
+    if (pathArray.length < 2) {
+        //if the path is only one layer deep, return the value immediately
+        if (obj[path])
+            return obj[path];
+        else return 'Nothing was found at the specified path';
+    }
+    else {
+        //if the path has multiple layers, itterate through them
+        
+        //regular expression matching a valid multi-layer lookup path
+        const reg = /(?:\s|^)((?:[a-zA-Z_$]+[\w$]*)(?:\.[a-zA-Z_$]+[\w$]*)+)(?:\s|$)/;
+        if (reg.test(path)) {
+            //if lookup path is valid, split it into the array
+            pathArray = path.split('.');
+            console.log('path array: ' + pathArray);
+        }
+        else return 'Error: not a valid lookup path';
+        
+        let temp = obj[pathArray[0]];
+        for (let i = 1; i < pathArray.length; i++) {
+            temp = temp[pathArray[i]];
+        }
+        if (temp)
+            return temp;
+        else return 'Nothing was found at the specified path';
+    }
+}
             `
         },
         {

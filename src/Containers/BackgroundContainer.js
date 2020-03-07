@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import Title from '../Components/Title'
 import TaskContainer from './TaskContainer'
 import SectionTitle from '../Components/SectionTitle'

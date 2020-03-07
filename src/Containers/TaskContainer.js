@@ -8,10 +8,20 @@ import {
 
 import { useSelector } from 'react-redux'
 import SectionTitle from '../Components/SectionTitle'
+import ObjectLookupTask from '../Components/ObjectLookupTask'
 
 const TaskContainer = () => {
     const currentTaskNumber = useSelector(state => state.currentTask);
     const currentTask = useSelector(state => state.tasks[currentTaskNumber]);
+
+    let solutionComponent = (<div></div>);
+
+    if (currentTaskNumber === 1)
+        solutionComponent = (<ObjectLookupTask />);
+    else if (currentTaskNumber === 2)
+        solutionComponent = (<p>SOLUTION 2</p>);
+    else if (currentTaskNumber === 3)
+        solutionComponent = (<p>SOLUTION 3</p>);
 
     return (
         <TaskPageContainer>
@@ -28,6 +38,9 @@ const TaskContainer = () => {
             </div>
             <div>
                 <SectionTitle color="#0f0f19" >Solution</SectionTitle>
+                <CodeText>{currentTask.solution}</CodeText>
+                <SectionTitle color="#0f0f19" >Test</SectionTitle>
+                { solutionComponent }
             </div>
 
         </TaskPageContainer>
