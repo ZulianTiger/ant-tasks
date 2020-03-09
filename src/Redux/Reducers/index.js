@@ -75,10 +75,8 @@ lookup = (obj, path) => {
             example: `
 You can create a grocery list
             `,
-            solution: `
-            
-            `,
-            github: "",
+            solution: "",
+            github: "https://github.com/ZulianTiger/ant-tasks/blob/master/src/Containers/GroceryListContainer.js",
         },
         {
             name: "New Struct",
@@ -97,7 +95,31 @@ value 7 - appears 1 time
 Solution: {id: 6, value: 5}
             `,
             solution: `
-            
+newStruct = (arr) => {
+    let valuesArray = [];
+    //Extracting the values of each struct and saving it in a separate array
+    arr.map(struct => { valuesArray.push(struct.value) });
+    //Sorting the extracted values
+    valuesArray.sort();
+        
+    for (let i = 0; i < valuesArray.length - 1; i++) {
+        //Finding a smaller integer that appears at least twice
+        if (valuesArray[i] === valuesArray[i + 1]) {
+            //When the smaller duplicate integer is found, check if its increment exists
+            //by getting rid of duplicates and comparing it to the next values
+            let temp = Array.from(new Set(valuesArray));
+            for (let j = i; j < temp[temp.length - 1]; j++) {
+                if (temp[j] + 1 !== temp[j + 1])
+                    return { id: this.uniqueID(), value: temp[j] + 1 };
+            }
+        }
+    }
+    return "There are no duplicate integeres in this array of structs.";
+}
+        
+uniqueID = () => {
+    return ('_' + Math.random().toString(36).substr(2, 9));
+}
             `,
             github: "",
         }

@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import SectionTitle from '../Components/SectionTitle'
 import ObjectLookupTask from '../Components/ObjectLookupTask'
 import GroceryListContainer from '../Containers/GroceryListContainer'
+import NewStructTask from '../Components/NewStructTask'
 
 const TaskContainer = () => {
     const currentTaskNumber = useSelector(state => state.currentTask);
@@ -22,7 +23,7 @@ const TaskContainer = () => {
     else if (currentTaskNumber === 2)
         solutionComponent = (<GroceryListContainer />);
     else if (currentTaskNumber === 3)
-        solutionComponent = (<p>SOLUTION 3</p>);
+        solutionComponent = (<NewStructTask />);
 
     return (
         <TaskPageContainer>
