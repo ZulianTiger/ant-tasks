@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux'
 import SectionTitle from '../Components/SectionTitle'
 import ObjectLookupTask from '../Components/ObjectLookupTask'
+import GroceryListContainer from '../Containers/GroceryListContainer'
 
 const TaskContainer = () => {
     const currentTaskNumber = useSelector(state => state.currentTask);
@@ -16,10 +17,10 @@ const TaskContainer = () => {
 
     let solutionComponent = (<div></div>);
 
-    if (currentTaskNumber === 1)
+    if (currentTaskNumber === 1) 
         solutionComponent = (<ObjectLookupTask />);
     else if (currentTaskNumber === 2)
-        solutionComponent = (<p>SOLUTION 2</p>);
+        solutionComponent = (<GroceryListContainer />);
     else if (currentTaskNumber === 3)
         solutionComponent = (<p>SOLUTION 3</p>);
 
@@ -38,6 +39,10 @@ const TaskContainer = () => {
             </div>
             <div>
                 <SectionTitle color="#0f0f19" >Solution</SectionTitle>
+                <a style={{textDecoration: "none"}} target="_none" href={currentTask.github}>
+                    <i className="fab fa-github" style={{color: "#0f0f19", fontSize: 16, marginTop: 15}}></i>
+                    <span style={{ color: "blue", marginLeft: 5 }}>View on github</span>
+                </a>   
                 <CodeText>{currentTask.solution}</CodeText>
                 <SectionTitle color="#0f0f19" >Test</SectionTitle>
                 { solutionComponent }

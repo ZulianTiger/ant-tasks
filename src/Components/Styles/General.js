@@ -16,6 +16,8 @@ export const SectionTitleText = styled.h3`
     margin: 0px;
     padding: 0px;
     color: ${props => (props.color? props.color : "#fff")};
+    font-size: ${props => (props.size)};
+    text-align: ${props => (props.alignment? props.alignment : "left")};
 `
 
 export const Button = styled.div`

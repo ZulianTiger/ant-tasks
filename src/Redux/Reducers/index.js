@@ -1,5 +1,8 @@
 const initialState = {
+    groceries: [],
+    groceryCount: 0,
     currentTask: 0,
+    editWindow: {},
     tasks: [
         {
             name: "",
@@ -7,6 +10,8 @@ const initialState = {
             color: "#0f0f19",
             description: "",
             example: "",
+            solution: "",
+            github: "",
         },
         {
             name: "Object Lookup",
@@ -56,7 +61,8 @@ lookup = (obj, path) => {
         else return 'Nothing was found at the specified path';
     }
 }
-            `
+            `,
+            github: "https://github.com/ZulianTiger/ant-tasks/blob/master/src/Components/ObjectLookupTask.js",
         },
         {
             name: "Grocery List",
@@ -68,7 +74,11 @@ lookup = (obj, path) => {
             using external libraries or services.`,
             example: `
 You can create a grocery list
-            `
+            `,
+            solution: `
+            
+            `,
+            github: "",
         },
         {
             name: "New Struct",
@@ -85,7 +95,11 @@ value 4 - appear 1 time
 value 7 - appears 1 time
 
 Solution: {id: 6, value: 5}
-            `
+            `,
+            solution: `
+            
+            `,
+            github: "",
         }
     ],
 }
@@ -94,6 +108,44 @@ export default (state = initialState, action) => {
     if (action.type === 'SET_CURRENT_TASK') {
         return Object.assign({}, state, {
             currentTask: action.taskNumber,
+        })
+    }
+    else if (action.type === "ADD_GROCERY") {
+        let tempArray = state.groceries;
+        tempArray.push({index: action.index, item: action.grocery});
+        return Object.assign({}, state, {
+            groceries: tempArray,
+            groceryCount: state.groceryCount + 1,
+        })
+    }
+    else if (action.type === "REMOVE_GROCERY") {
+        let tempArray = state.groceries;
+        let newArray = [];
+        for (let i = 0; i < tempArray.length; i++){
+            if (i < action.index)
+                newArray.push({index: i, item: tempArray[i].item});
+            else if (i > action.index)
+                newArray.push({index: i-1, item: tempArray[i].item});
+        }
+        return Object.assign({}, state, {
+            groceries: newArray,
+            groceryCount: state.groceryCount - 1,
+        })
+    }
+    else if (action.type === "EDIT_GROCERY") {
+        let tempArray = state.groceries;
+        let newArray = [];
+        for (let i = 0; i < tempArray.length; i++){
+            if (i < action.index)
+                newArray.push({index: i, item: tempArray[i].item});
+            else if (i > action.index)
+                newArray.push({index: i, item: tempArray[i].item});
+            else {
+                newArray.push({index: i, item: action.newItem})
+            }
+        }
+        return Object.assign({}, state, {
+            groceries: newArray,
         })
     }
     else return state;

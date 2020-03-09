@@ -34,3 +34,11 @@ export const TasksContainer = styled.div`
         display: table-cell;
     }
 `
+export const ListContainer = styled.div`
+    margin-top: 30px;
+    width: 95%;
+    min-height: 500px;
+    background-color: #0f0f19;
+    padding: 30px 15px;
+    border-radius: 20px;
+`

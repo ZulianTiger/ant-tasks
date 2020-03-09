@@ -6,7 +6,7 @@ import {
 
 const SectionTitle = (props) => {
     return(
-        <SectionTitleText color={props.color} >
+        <SectionTitleText color={props.color} size={props.size} alignment={props.alignment} >
             {props.children}
         </SectionTitleText>
     )
