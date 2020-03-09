@@ -121,7 +121,7 @@ uniqueID = () => {
     return ('_' + Math.random().toString(36).substr(2, 9));
 }
             `,
-            github: "",
+            github: "https://github.com/ZulianTiger/ant-tasks/blob/master/src/Components/NewStructTask.js",
         }
     ],
 }

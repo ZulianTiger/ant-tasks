@@ -7,7 +7,7 @@ export const InputContainer = styled.div`
     width: ${props => (props.edit? "50%" : "80%")};
     margin-left: ${props => (props.edit? "25%" : "10%")};
     height: 50px;
-    background-color: ${props => (props.edit? "#b7b7ba" : "#2b2b2b")};
+    background-color: ${props => (props.edit? "#636366" : "#2b2b2b")};
     border-radius: 5px;
     @media only screen and (max-width: 600px) {
         width: 100%;

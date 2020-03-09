@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <title>Ant Colony - Tasks</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/46ab25f50c.js" crossorigin="anonymous"></script>
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <style>
-      body {
-        font-family: 'Ubuntu', serif;
+  <title>Ant Colony - Tasks</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.10.0/firebase-app.js"></script>
+
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <script src="https://kit.fontawesome.com/46ab25f50c.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Ubuntu', serif;
+    }
+  </style>
+
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      // // The Firebase SDK is initialized and available here!
+      //
+      // firebase.auth().onAuthStateChanged(user => { });
+      // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+      // firebase.messaging().requestPermission().then(() => { });
+      // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+      //
+      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+      try {
+        let app = firebase.app();
+        let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+        document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
       }
-    </style>
-    
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    });
+  </script>
+</body>
 
-  </body>
 </html>
